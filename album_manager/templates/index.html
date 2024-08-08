@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Album Manager{% endblock title %}
+{% block content %}
+    <div class="container">
+        <h3 class="py-4">Bienvenido a Album Manager</h3>
+        <h4 class="mb-4">¿Qué deseas ver?</h4>
+        <div class="card mb-3">
+            <div class="row g-0">
+            <div class="col-md-6">
+                <img src="{% static "artistas.jpg" %}" class="img-fluid rounded-start" alt="">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body text-center">
+                <h2 class="card-title py-4">Artistas</h2>
+                <p class="card-text mb-4">Adentrate en tus artistas favoritos</p>
+                <a href="{% url "album_manager:artistas" %}" class="btn btn-primary p-4"><h4>Ir a tus Artistas</h4></a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="row g-0">
+            <div class="col-md-6">
+                <div class="card-body text-center">
+                <h2 class="card-title py-4">Albums</h2>
+                <p class="card-text mb-4">Mira tus álbumes favoritos</p>
+                <a href="{% url "album_manager:albums" %}" class="btn btn-success p-4"><h4>Ir a tus Albums</h4></a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static "albums.jpg" %}" class="img-fluid rounded-start" alt="">
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

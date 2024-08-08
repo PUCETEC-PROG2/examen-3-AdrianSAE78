@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ album }}{% endblock title %}
+{% block content %}
+    <h5 class="py-4"><strong>{{ artista | capfirst }}</strong></h5>
+        <div class="row">
+            <div class="col-12 col-lg-5">
+                <div class="card bg-dark">
+                    <div class="card-body">
+                        <h5 class="mb-3 text-light text-center">Detalles:</h5>
+                        <ul class="list-group mb-4">
+                            <li class="list-group-item list-group-item-secondary text-dark text-center"><strong>Título: </strong>{{ album.title }}</li>
+                            <li class="list-group-item list-group-item-secondary text-dark text-center"><strong>Año de lanzamiento: </strong>{{ album.release_year }}</li>
+                            <li class="list-group-item list-group-item-secondary text-dark text-center"><strong>Género: </strong>{{ album.genre }}</li>
+                            <li class="list-group-item list-group-item-secondary text-dark text-center"><strong>Artísta: </strong>{{ album.artist }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-7 text-center">
+                <img src="{{ album.front_page.url }}" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

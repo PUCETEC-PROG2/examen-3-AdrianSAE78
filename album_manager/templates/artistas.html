@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Artistas{% endblock title %}
+{% block content %}
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Detalles</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for artista in artistas %}
+                <tr>
+                    <td scope="row">{{ artista.id }}</td>
+                    <td>{{ artista.name }}</td>
+                    <td><a href="mostrar_artista/{{ artista.id }}" class="btn btn-secondary">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    {% if user.is_authenticated %}
+                    <td><a href="edit_artista/{{ artista.id }}" class="btn btn-warning">
+                            <i class="fa-solid fa-pencil"></i>
+                        </a></td>
+                    <td><a href="delete_artista/{{ artista.id }}" class="btn btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </a></td></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

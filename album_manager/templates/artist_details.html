@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ artista }}{% endblock title %}
+{% block content %}
+    <h5 class="py-4"><strong>{{ artista | capfirst }}</strong></h5>
+        <div class="col-8 col-lg-12">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    <h5 class="mb-3 text-light text-center">Detalles:</h5>
+                    <ul class="list-group mb-4">
+                        <li class="list-group-item list-group-item-secondary text-dark text-center"><strong>Nombre: </strong>{{ artista.name }}</li>
+                        <li class="list-group-item list-group-item-secondary text-dark text-center"><strong>País: </strong>{{ artista.country }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

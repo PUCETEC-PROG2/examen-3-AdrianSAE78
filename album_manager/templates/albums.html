@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Albums{% endblock title %}
+{% block content %}
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Detalles</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for album in albums %}
+                <tr>
+                    <td scope="row">{{ album.id }}</td>
+                    <td>{{ album.title }}</td>
+                    <td>{{ album.artist }}</td>
+                    <td><a href="mostrar_album/{{ album.id }}" class="btn btn-primary">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    {% if user.is_authenticated %}
+                    <td><a href="edit_album/{{ album.id }}" class="btn btn-warning">
+                            <i class="fa-solid fa-pencil"></i>
+                        </a></td>
+                    <td><a href="delete_album/{{ album.id }}" class="btn btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </a></td></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
